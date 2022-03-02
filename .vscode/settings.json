@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/de935fed-2e1f-43dc-a362-57c8d63e0013/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/messaging-board",
+    "appService.deploySubpath": "."
+}
