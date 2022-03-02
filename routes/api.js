@@ -105,10 +105,15 @@ module.exports = function (app) {
       } catch {
         return res.json({ error: "failed to fetch thread" });
       }
-      thread.bumped_on = new Date();
       thread.replies.unshift({ text, delete_password });
       try {
-        await thread.save();
+        thread = await thread.save();
+      } catch {
+        return res.json({ errror: "failed to save reply" });
+      }
+      thread.bumped_on = thread.replies[0].created_on;
+      try {
+        thread = await thread.save();
       } catch {
         return res.json({ errror: "failed to save reply" });
       }
